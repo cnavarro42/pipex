@@ -2,13 +2,13 @@ NAME =		pipex
 
 CC =		gcc
 
-CFLAGS =    -Wall -Wextra -Werror #-g
+CFLAGS =    -Wall -Wextra -Werror -g
 
 #DFLAGS =	-g -fsanitize=address
 
 RM =		rm -rf
 
-SRCS_C		= ../main.c dad.c son.c daughter.c
+SRCS_C		= ../main.c dad.c writer.c reader.c utils.c pathing.c
 
 SRCS		= $(addprefix srcs/, $(SRCS_C))
 

@@ -15,8 +15,10 @@
 # include <fcntl.h>
 # include <stdlib.h>
 
-void			ft_dad(int *fd, pid_t pid);
-void		ft_son(int *fd);
-void		ft_daughter(int *fd);
+void	    ft_dad(int *fd, pid_t pid, char **envp, char **argv);
+void		ft_writer(int *fd, char **envp, char **argv);
+void        ft_reader(int *fd, char **envp, char **argv);
+void        check_argv(int argc);
+char        *pathing(char *command, char **envp);
 
 #endif
