@@ -8,7 +8,7 @@ CFLAGS =    -Wall -Wextra -Werror -g
 
 RM =		rm -rf
 
-SRCS_C		= ../main.c dad.c writer.c reader.c utils.c pathing.c
+SRCS_C		= ../main.c family.c pathing.c
 
 SRCS		= $(addprefix srcs/, $(SRCS_C))
 
@@ -29,7 +29,7 @@ clean:
 	@$(RM) $(OBJS)
 	@make fclean -C $(LIBFT)
 fclean:
-	@$(RM) $(OBJS)
+	@$(RM) $(OBJS) $(NAME)
 	@make fclean -C $(LIBFT)
 re:			fclean all
 

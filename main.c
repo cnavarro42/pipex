@@ -6,7 +6,7 @@
 /*   By: cnavarro <cnavarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 13:19:28 by cnavarro          #+#    #+#             */
-/*   Updated: 2021/06/18 13:16:18 by cnavarro         ###   ########.fr       */
+/*   Updated: 2021/06/18 19:00:46 by cnavarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,20 @@ int	main(int argc, char **argv, char **envp)
 		ft_writer(fd, envp, argv);
 	else if (pid == -1)
 	{
-		perror("Error");
+		perror("Error: Son not found");
 		exit(-1);
 	}
 	ft_dad(fd, pid, envp, argv);
 	wait(&status);
 	wait(&status);
 	return (0);
+}
+
+void	check_argv(int argc)
+{
+	if (argc < 5)
+	{
+		perror("No valids arguments");
+		exit(-1);
+	}
 }

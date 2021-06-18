@@ -6,38 +6,38 @@
 /*   By: cnavarro <cnavarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:16:37 by cnavarro          #+#    #+#             */
-/*   Updated: 2021/06/18 17:32:52 by cnavarro         ###   ########.fr       */
+/*   Updated: 2021/06/18 18:43:56 by cnavarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/pipex.h"
 
-int		search_for_line(char **envp)
+int	search_for_line(char **envp)
 {
-	int i;
-	char *cosa;
+	int		i;
+	char	*cosa;
+
 	i = 0;
-	while(envp[i])
+	while (envp[i])
 	{
 		cosa = ft_strnstr(envp[i], "PATH=", 5);
-		if(cosa != NULL)
-			return(i);
+		if (cosa != NULL)
+			return (i);
 		i++;
 	}
-	return -1;
+	return (-1);
 }
 
 char	*pathing(char *command, char **envp)
 {
-	char *the_path;
-	char **paths;
-	int i;
-	int fd;
+	char	*the_path;
+	char	**paths;
+	int		i;
+	int		fd;
 
 	the_path = NULL;
 	paths = ft_split(envp[search_for_line(envp)], ':');
 	paths[0] = ft_strchr(paths[0], '/');
-
 	i = 0;
 	while (paths[i])
 	{
@@ -54,5 +54,5 @@ char	*pathing(char *command, char **envp)
 		i++;
 	}
 	ft_free_matrix(paths);
-	return(NULL);
+	return (NULL);
 }
