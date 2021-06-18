@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_free_matrix.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cnavarro <cnavarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 13:19:28 by cnavarro          #+#    #+#             */
-/*   Updated: 2021/06/18 13:16:18 by cnavarro         ###   ########.fr       */
+/*   Created: 2021/06/18 10:27:56 by cnavarro          #+#    #+#             */
+/*   Updated: 2021/06/18 10:35:19 by cnavarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./header/pipex.h"
+#include "libft.h"
 
-int	main(int argc, char **argv, char **envp)
+void	ft_free_matrix(char **matrix)
 {
-	int		fd[2];
-	pid_t	pid;
-	int		status;
+	int i;
 
-	check_argv(argc);
-	pipe(fd);
-	pid = fork();
-	if (pid == 0)
-		ft_writer(fd, envp, argv);
-	else if (pid == -1)
-	{
-		perror("Error");
-		exit(-1);
-	}
-	ft_dad(fd, pid, envp, argv);
-	wait(&status);
-	wait(&status);
-	return (0);
+	i = -1;
+	while(matrix[++i])
+		free(matrix[i]);
+	free(matrix);
 }

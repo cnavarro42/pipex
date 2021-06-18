@@ -6,7 +6,7 @@
 /*   By: cnavarro <cnavarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 16:55:57 by cnavarro          #+#    #+#             */
-/*   Updated: 2021/06/17 15:23:10 by cnavarro         ###   ########.fr       */
+/*   Updated: 2021/06/18 17:35:50 by cnavarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_reader(int *fd, char **envp, char **argv)
 	
 	command_splitted = ft_split(argv[3], ' ');
 	path = pathing(command_splitted[0], envp);
+	printf("READER: Path: %s, Command: %s\n", path, command_splitted[0]);
 	fd_outfile = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, S_IRWXU);
 	dup2(fd[READ_END], STDIN_FILENO);
 	close(fd[READ_END]);
