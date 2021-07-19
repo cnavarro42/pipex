@@ -12,7 +12,7 @@ SRCS =  ft_atoi.c	ft_bzero.c	ft_calloc.c \
 		ft_strtrim.c	ft_split.c		ft_itoa.c \
 		ft_strmapi.c	ft_putchar_fd.c	ft_putstr_fd.c \
 		ft_putendl_fd.c	ft_putnbr_fd.c	ft_strnlen.c \
-		ft_insert_string.c	ft_strjoinchar.c ft_free_matrix.c\
+		ft_insert_string.c ft_free_matrix.c ft_strjoinchar.c\
 
 BONS =  ft_lstnew_bonus.c		ft_lstadd_front_bonus.c \
 		ft_lstsize_bonus.c		ft_lstlast_bonus.c \
@@ -26,7 +26,7 @@ OBJECTS = $(SRCS:.c=.o)
 
 BOBJ =    $(BONS:.c=.o)
 
-$(NAME): $(SRCS)
+$(NAME): $(SRCS) libft.h
 		-$(GCC) -I./ -c $(SRCS)
 		-@ar rc $(NAME) $(OBJECTS)
 		-@ranlib $(NAME)

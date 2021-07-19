@@ -6,7 +6,7 @@
 /*   By: cnavarro <cnavarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 10:27:56 by cnavarro          #+#    #+#             */
-/*   Updated: 2021/06/18 10:35:19 by cnavarro         ###   ########.fr       */
+/*   Updated: 2021/06/21 08:21:39 by cnavarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_free_matrix(char **matrix)
 {
-	int i;
+	int	i;
 
 	i = -1;
-	while(matrix[++i])
-		free(matrix[i]);
-	free(matrix);
+	while (matrix[++i])
+		free (matrix[i]);
+	free (matrix);
 }

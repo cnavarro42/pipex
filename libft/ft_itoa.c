@@ -6,7 +6,7 @@
 /*   By: cnavarro <cnavarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 16:34:38 by cnavarro          #+#    #+#             */
-/*   Updated: 2021/04/07 11:55:57 by cnavarro         ###   ########.fr       */
+/*   Updated: 2021/06/21 12:40:16 by cnavarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,17 @@ static void	ft_fillret(int n, int len, char *ret, int i)
 char	*ft_itoa(int n)
 {
 	char	*ret;
-	int		len;
 	int		i;
 
 	if (n == -2147483648)
 		return (ft_strdup("0"));
-	len = ft_lenint(n);
-	ret = malloc(sizeof(char) * len + 1);
+	ret = malloc(sizeof(char) * ft_lenint(n) + 1);
 	if (!ret)
 		return (NULL);
 	i = 0;
 	if (n < 0)
 	{
-		ret = malloc(sizeof(char) * len + 2);
+		ret = malloc(sizeof(char) * ft_lenint(n) + 2);
 		if (!ret)
 			return (NULL);
 		ret[0] = '-';
@@ -88,9 +86,9 @@ char	*ft_itoa(int n)
 		i++;
 	}
 	else
-		ret = malloc(sizeof(char) * len + 1);
+		ret = malloc(sizeof(char) * ft_lenint(n) + 1);
 	if (!ret)
 		return (NULL);
-	ft_fillret(n, len, ret, i);
+	ft_fillret(n, ft_lenint(n), ret, i);
 	return (ret);
 }

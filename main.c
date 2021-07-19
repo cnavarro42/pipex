@@ -6,7 +6,7 @@
 /*   By: cnavarro <cnavarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 13:19:28 by cnavarro          #+#    #+#             */
-/*   Updated: 2021/06/18 19:00:46 by cnavarro         ###   ########.fr       */
+/*   Updated: 2021/06/21 16:34:08 by cnavarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv, char **envp)
 
 void	check_argv(int argc)
 {
-	if (argc < 5)
+	if (argc != 5)
 	{
 		perror("No valids arguments");
 		exit(-1);
